@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/products', [ProductsController::Class, 'index']); //index -> função definida no controller
+Route::get('/products', [ProductsController::Class, 'index']);
 Route::get('/products/{id}', [ProductsController::Class, 'show']);
 Route::get('/products/search/{name}', [ProductsController::Class, 'search']);
 Route::post('/register', [AuthController::Class, 'register']);
@@ -31,13 +31,3 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::delete('/products/{id}', [ProductsController::Class, 'destroy']);
     Route::post('/logout', [AuthController::Class, 'logout']);
 });
-
-/*  Route::group(['middleware' => ['auth:sanctum']], function() {
-    Route::post('/products', [ProductsController::Class, 'store']);
-    Route::put('/products/{id}', [ProductsController::Class, 'update']);
-    Route::delete('/products/{id}', [ProductsController::Class, 'destroy']);
-}); */
-
-/* Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-}); */

@@ -43,12 +43,12 @@ class AuthController extends Controller
             'email' => 'required|string',
             'password' => 'required|string'
         ]);
-        
+
         //Verificar se e-mail informado existe
         $user = User::where('email', $request->email)->first();
 
         //Valida usuário e senha
-        if(!$user || !Hash::check($request->password, $user->password)){
+        if (!$user || !Hash::check($request->password, $user->password)) {
             return response([
                 'message' => 'Credenciais Inválidas!'
             ], 401);
